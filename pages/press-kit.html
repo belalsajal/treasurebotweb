@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Kit | TreasureBot</title>
+    <meta name="description" content="Access official TreasureBot press materials, brand assets, company information, and media resources for press coverage and partnership opportunities.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .press-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .press-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .press-intro p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .press-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .press-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .press-card-content {
+            padding: 25px;
+        }
+        
+        .press-card-title {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .press-card-desc {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+        
+        .brand-assets {
+            background-color: var(--background-grey);
+            padding: 80px 0;
+        }
+        
+        .brand-assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .asset-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .asset-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background-color: var(--background-grey);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .asset-preview img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .asset-title {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .asset-formats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .format-badge {
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .press-info {
+            padding: 80px 0;
+        }
+        
+        .info-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .info-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .info-card p, .info-card ul {
+            margin-bottom: 20px;
+        }
+        
+        .info-card ul {
+            padding-left: 20px;
+        }
+        
+        .info-card li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-section {
+            background-color: var(--background-grey);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Press Kit</h1>
+                <p class="subheadline">Official media resources for TreasureBot</p>
+            </div>
+        </section>
+
+        <section class="press-section">
+            <div class="container">
+                <div class="press-intro">
+                    <p>Welcome to TreasureBot's press room. Here you'll find everything you need to accurately represent our brand in your publications, including our latest news, brand assets, company information, and media contacts.</p>
+                </div>
+                
+                <div class="section-title">
+                    <h2>Latest Press Releases</h2>
+                </div>
+                
+                <div class="press-grid">
+                    <div class="press-card">
+                        <div class="press-card-content">
+                            <div class="press-meta">April 10, 2025</div>
+                            <h3 class="press-card-title">TreasureBot Completes Prototype Development</h3>
+                            <p class="press-card-desc">We've successfully completed our initial prototype and are preparing for first tests with potential users.</p>
+                            <a href="#" class="btn btn-outline">Read Full Release</a>
+                        </div>
+                    </div>
+                    
+                    <div class="press-card">
+                        <div class="press-card-content">
+                            <div class="press-meta">March 5, 2025</div>
+                            <h3 class="press-card-title">TreasureBot Accepted into Berlin Startup Mentorship Program</h3>
+                            <p class="press-card-desc">Selected as a promising environmental technology startup for Berlin's early-stage mentorship initiative.</p>
+                            <a href="#" class="btn btn-outline">Read Full Release</a>
+                        </div>
+                    </div>
+                    
+                    <div class="press-card">
+                        <div class="press-card-content">
+                            <div class="press-meta">February 1, 2025</div>
+                            <h3 class="press-card-title">TreasureBot Officially Launches Development of AI Recycling Solution</h3>
+                            <p class="press-card-desc">Our team has begun development on our innovative recycling technology aimed at revolutionizing waste management.</p>
+                            <a href="#" class="btn btn-outline">Read Full Release</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-assets">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Brand Assets</h2>
+                </div>
+                
+                <div class="brand-assets-grid">
+                    <div class="asset-card">
+                        <div class="asset-preview">
+                            <img src="../images/logo.png" alt="TreasureBot Logo">
+                        </div>
+                        <h3 class="asset-title">Primary Logo</h3>
+                        <div class="asset-formats">
+                            <span class="format-badge">SVG</span>
+                            <span class="format-badge">PNG</span>
+                            <span class="format-badge">JPG</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Download</a>
+                    </div>
+                    
+                    <div class="asset-card">
+                        <div class="asset-preview">
+                            <img src="../images/logo.png" alt="TreasureBot Logo White">
+                        </div>
+                        <h3 class="asset-title">Light Logo</h3>
+                        <div class="asset-formats">
+                            <span class="format-badge">SVG</span>
+                            <span class="format-badge">PNG</span>
+                            <span class="format-badge">JPG</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Download</a>
+                    </div>
+                    
+                    <div class="asset-card">
+                        <div class="asset-preview">
+                            <img src="../images/logo.png" alt="TreasureBot Icon">
+                        </div>
+                        <h3 class="asset-title">App Icon</h3>
+                        <div class="asset-formats">
+                            <span class="format-badge">SVG</span>
+                            <span class="format-badge">PNG</span>
+                            <span class="format-badge">JPG</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+                
+                <div class="press-intro" style="margin-top: 40px;">
+                    <p>For additional brand assets, including product photos, executive headshots, and device mockups, please contact our media team.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="press-info">
+            <div class="container">
+                <div class="section-company-info">
+                    <div class="section-title">
+                        <h2>Company Information</h2>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="company-facts">
+                            <div class="fact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                                <div class="fact-item">
+                                    <h3>Founded</h3>
+                                    <p>Yet to be founded</p>
+                                </div>
+                                <div class="fact-item">
+                                    <h3>Founders</h3>
+                                    <p>Belal Sajal (CEO), Mario Sessini (CTO- rejoining in Q4 2026)</p>
+                                </div>
+                                <div class="fact-item">
+                                    <h3>Headquarters</h3>
+                                    <p>Berlin, Germany</p>
+                                </div>
+                                <div class="fact-item">
+                                    <h3>Team Size</h3>
+                                    <p>3 team members</p>
+                                </div>
+                                <div class="fact-item">
+                                    <h3>Funding</h3>
+                                    <p>Pre-seed stage, self-funded</p>
+                                </div>
+                                <div class="fact-item">
+                                    <h3>Market Focus</h3>
+                                    <p>Initial launch planned for Berlin with expansion strategy for German market</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Media Contact</h2>
+                </div>
+                
+                <div class="contact-card">
+                    <p>For press inquiries, interview requests, or additional information, please contact:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>press@treasurebot.com</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Phone</h4>
+                            <p>+49 30 555 789 00</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Response Time</h4>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

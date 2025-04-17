@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer API | TreasureBot</title>
+    <meta name="description" content="Access TreasureBot's comprehensive developer API to integrate recycling data into your applications and create innovative sustainability solutions.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .api-section {
+            margin: 60px 0;
+        }
+        
+        .code-block {
+            background-color: #282c34;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 30px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #abb2bf;
+        }
+        
+        .language-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #abb2bf;
+            font-size: 12px;
+        }
+        
+        .api-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .api-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .api-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .endpoint {
+            display: flex;
+            background-color: var(--background-grey);
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            align-items: center;
+        }
+        
+        .http-method {
+            font-weight: 700;
+            margin-right: 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #fff;
+        }
+        
+        .get { background-color: #61affe; }
+        .post { background-color: #49cc90; }
+        .put { background-color: #fca130; }
+        .delete { background-color: #f93e3e; }
+        
+        .path {
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+        
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .parameter-table th, .parameter-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .parameter-table th {
+            background-color: var(--background-grey);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .sdk-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .sdk-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .sdk-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sdk-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .sdk-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        .beta-banner {
+            background-color: #ffb700;
+            color: #333;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 600;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .beta-banner a {
+            color: #333;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+        
+        .timeline-container {
+            margin: 50px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 40px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -13px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -13px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                border-left: 4px solid var(--primary-color);
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="beta-banner">
+        🚧 Our API is currently in limited beta access while we complete prototype testing. <a href="#early-access">Request early access</a> or <a href="#roadmap">view our development roadmap</a>. 🚧
+    </div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Developer API</h1>
+                <p class="subheadline">Integrate TreasureBot's powerful recycling data and services into your applications</p>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <div class="container">
+                <h2>Getting Started</h2>
+                <p>Welcome to the TreasureBot API. Our RESTful API allows developers to integrate recycling data, user engagement tools, and sustainability metrics into their applications. Follow the steps below to get started:</p>
+                
+                <div class="api-card">
+                    <h3>1. Register for API Access</h3>
+                    <p>Create a developer account in our <a href="#">Developer Portal</a> and generate your API key. This key is required for all API calls to authenticate your application.</p>
+                    
+                    <div class="code-block">
+                        <div class="language-label">bash</div>
+                        <pre><code>curl -X POST "https://api.treasurebot.io/v1/auth/token" \
+    -H "Content-Type: application/json" \
+    -d '{"client_id": "YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET"}'</code></pre>
+                    </div>
+                </div>
+                
+                <div class="api-card">
+                    <h3>2. Authentication</h3>
+                    <p>All API requests require an access token. Request a token using your client credentials and include it in the Authorization header of your API requests.</p>
+                    
+                    <div class="code-block">
+                        <div class="language-label">javascript</div>
+                        <pre><code>// Example using fetch API
+async function getToken() {
+    const response = await fetch('https://api.treasurebot.io/v1/auth/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            client_id: 'YOUR_CLIENT_ID',
+            client_secret: 'YOUR_CLIENT_SECRET'
+        })
+    });
+    
+    const data = await response.json();
+    return data.access_token;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section" style="background-color: var(--background-grey); padding: 60px 0;">
+            <div class="container">
+                <h2>Available SDKs</h2>
+                <p>Use our official software development kits to integrate with TreasureBot more easily:</p>
+                
+                <div class="sdk-cards">
+                    <div class="sdk-card">
+                        <div class="sdk-icon"><i class="fab fa-js"></i></div>
+                        <h3>JavaScript</h3>
+                        <p>Perfect for web applications and Node.js backends.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Get SDK</a>
+                    </div>
+                    
+                    <div class="sdk-card">
+                        <div class="sdk-icon"><i class="fab fa-python"></i></div>
+                        <h3>Python</h3>
+                        <p>Ideal for data analysis and backend services.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Get SDK</a>
+                    </div>
+                    
+                    <div class="sdk-card">
+                        <div class="sdk-icon"><i class="fab fa-java"></i></div>
+                        <h3>Java</h3>
+                        <p>For enterprise applications and Android development.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Get SDK</a>
+                    </div>
+                    
+                    <div class="sdk-card">
+                        <div class="sdk-icon"><i class="fab fa-swift"></i></div>
+                        <h3>Swift</h3>
+                        <p>Build iOS applications with TreasureBot integration.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Get SDK</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <div class="container">
+                <h2>Core Endpoints</h2>
+                <p>Explore the main endpoints available in the TreasureBot API:</p>
+                
+                <div class="api-card">
+                    <h3>Recycling Data</h3>
+                    <p>Access information about recycling activities, waste categories, and material types.</p>
+                    
+                    <div class="endpoint">
+                        <span class="http-method get">GET</span>
+                        <span class="path">/v1/recycling/materials</span>
+                    </div>
+                    
+                    <p>Returns a list of recyclable materials with their properties and handling instructions.</p>
+                    
+                    <table class="parameter-table">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>category</td>
+                            <td>string</td>
+                            <td>Filter materials by category (plastic, paper, glass, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td>region</td>
+                            <td>string</td>
+                            <td>Filter by geographic region to get region-specific recycling information</td>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>integer</td>
+                            <td>Maximum number of results to return (default: 20)</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="api-card">
+                    <h3>User Management</h3>
+                    <p>Manage TreasureBot user accounts and access user-specific recycling data.</p>
+                    
+                    <div class="endpoint">
+                        <span class="http-method post">POST</span>
+                        <span class="path">/v1/users</span>
+                    </div>
+                    
+                    <p>Create a new user account in the TreasureBot system.</p>
+                    
+                    <div class="code-block">
+                        <div class="language-label">json</div>
+                        <pre><code>{
+    "email": "user@example.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "password": "secure_password",
+    "region": "eu-west",
+    "opt_in_newsletter": true
+}</code></pre>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="http-method get">GET</span>
+                        <span class="path">/v1/users/{user_id}/statistics</span>
+                    </div>
+                    
+                    <p>Retrieve recycling statistics for a specific user.</p>
+                </div>
+                
+                <div class="api-card">
+                    <h3>Green Points</h3>
+                    <p>Integrate with TreasureBot's reward system to manage and track user sustainability points.</p>
+                    
+                    <div class="endpoint">
+                        <span class="http-method post">POST</span>
+                        <span class="path">/v1/points/award</span>
+                    </div>
+                    
+                    <p>Award Green Points to a user for environmentally-friendly actions.</p>
+                    
+                    <div class="code-block">
+                        <div class="language-label">json</div>
+                        <pre><code>{
+    "user_id": "usr_12345",
+    "points": 25,
+    "action_type": "recycle",
+    "material_type": "plastic_bottle",
+    "location_id": "loc_berlin_001"
+}</code></pre>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="http-method get">GET</span>
+                        <span class="path">/v1/points/leaderboard</span>
+                    </div>
+                    
+                    <p>Get the Green Points leaderboard for a specific region or organization.</p>
+                </div>
+                
+                <div class="api-card">
+                    <h3>Machine Learning Tools</h3>
+                    <p>Access TreasureBot's AI capabilities for material recognition and recycling guidance.</p>
+                    
+                    <div class="endpoint">
+                        <span class="http-method post">POST</span>
+                        <span class="path">/v1/ai/identify</span>
+                    </div>
+                    
+                    <p>Identify recyclable materials from image data.</p>
+                    
+                    <div class="endpoint">
+                        <span class="http-method get">GET</span>
+                        <span class="path">/v1/ai/recommendations/{material_id}</span>
+                    </div>
+                    
+                    <p>Get AI-powered recycling recommendations for a specific material.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section" style="background-color: var(--background-grey); padding: 60px 0;">
+            <div class="container">
+                <h2>Example Implementation</h2>
+                <p>Here's a simple example of integrating TreasureBot's Green Points system into your application:</p>
+                
+                <div class="code-block">
+                    <div class="language-label">javascript</div>
+                    <pre><code>// Initialize TreasureBot client
+const treasureBot = new TreasureBot({
+    apiKey: 'YOUR_API_KEY',
+    region: 'eu-west'
+});
+
+// Award points to user when they recycle
+async function awardRecyclingPoints(userId, materialType, quantity) {
+    try {
+        const pointsAwarded = await treasureBot.points.award({
+            userId,
+            action: 'recycle',
+            materialType,
+            quantity,
+            timestamp: new Date().toISOString()
+        });
+        
+        console.log(`User awarded ${pointsAwarded} Green Points!`);
+        
+        // Update user interface with new points total
+        updateUserPointsDisplay(userId);
+        
+        return pointsAwarded;
+    } catch (error) {
+        console.error('Failed to award points:', error);
+        return 0;
+    }
+}
+
+// Get user's sustainability impact statistics
+async function getUserImpactStats(userId) {
+    const stats = await treasureBot.users.getStatistics(userId);
+    
+    // Display impact metrics to the user
+    updateImpactDashboard({
+        totalPoints: stats.total_green_points,
+        co2Saved: stats.co2_savings_kg,
+        materialsRecycled: stats.total_materials_recycled,
+        treesEquivalent: stats.trees_saved_equivalent
+    });
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-section">
+            <div class="container">
+                <h2>Rate Limits & Pricing</h2>
+                <p>Our API is available in multiple tiers to accommodate different usage needs:</p>
+                
+                <table class="parameter-table">
+                    <tr>
+                        <th>Plan</th>
+                        <th>Rate Limit</th>
+                        <th>Price</th>
+                        <th>Features</th>
+                    </tr>
+                    <tr>
+                        <td>Developer</td>
+                        <td>1,000 requests/day</td>
+                        <td>Free</td>
+                        <td>Basic endpoints, development environment only</td>
+                    </tr>
+                    <tr>
+                        <td>Startup</td>
+                        <td>50,000 requests/day</td>
+                        <td>€99/month</td>
+                        <td>All endpoints, production access, basic support</td>
+                    </tr>
+                    <tr>
+                        <td>Business</td>
+                        <td>500,000 requests/day</td>
+                        <td>€499/month</td>
+                        <td>All endpoints, higher rate limits, priority support</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td>Custom</td>
+                        <td>Contact Sales</td>
+                        <td>Custom integration, SLA, dedicated support</td>
+                    </tr>
+                </table>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-primary">Sign Up for API Access</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="early-access" class="api-section" style="background-color: var(--background-grey); padding: 60px 0;">
+            <div class="container">
+                <h2>Request Early Access</h2>
+                <p>Our API is currently in limited beta testing. Submit your details below to join our early access program and be among the first to integrate TreasureBot's recycling technology into your applications.</p>
+                
+                <div class="api-card" style="max-width: 700px; margin: 40px auto;">
+                    <form id="early-access-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <label for="first-name">First Name*</label>
+                                <input type="text" id="first-name" required>
+                            </div>
+                            <div>
+                                <label for="last-name">Last Name*</label>
+                                <input type="text" id="last-name" required>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="company">Company Name*</label>
+                            <input type="text" id="company" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="email">Work Email*</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="use-case">Describe Your Use Case*</label>
+                            <textarea id="use-case" rows="4" required></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="api-interest">Which API features are you most interested in?</label>
+                            <select id="api-interest">
+                                <option value="all">All Features</option>
+                                <option value="recycling-data">Recycling Data</option>
+                                <option value="green-points">Green Points System</option>
+                                <option value="ai-identification">AI Material Identification</option>
+                                <option value="sustainability-metrics">Sustainability Metrics</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms" style="margin-left: 10px;">I agree to the <a href="#">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                    </form>
+                </div>
+                
+                <p style="text-align: center; margin-top: 30px;">Our team reviews applications weekly. If selected, you'll receive developer credentials and documentation within 5 business days.</p>
+            </div>
+        </section>
+        
+        <section id="roadmap" class="api-section">
+            <div class="container">
+                <h2>API Development Roadmap</h2>
+                <p>Here's our planned timeline for API feature releases and improvements:</p>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">January 2025</div>
+                                <h3>Limited Beta Launch</h3>
+                                <p>Core API endpoints released to selected partners for initial testing and feedback.</p>
+                                <ul>
+                                    <li>Basic authentication</li>
+                                    <li>Material database access</li>
+                                    <li>User management endpoints</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">April 2025 - Current Phase</div>
+                                <h3>Extended Beta Testing</h3>
+                                <p>Expanded feature set and increased stability based on initial feedback.</p>
+                                <ul>
+                                    <li>Green Points integration</li>
+                                    <li>JavaScript SDK release</li>
+                                    <li>Improved documentation</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">June 2025</div>
+                                <h3>AI Capabilities Release</h3>
+                                <p>Integration of TreasureBot's machine learning models for material identification.</p>
+                                <ul>
+                                    <li>Image analysis API</li>
+                                    <li>Material identification endpoints</li>
+                                    <li>Recycling recommendations</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">September 2025</div>
+                                <h3>Public Beta Launch</h3>
+                                <p>Open access to all developers with freemium pricing model.</p>
+                                <ul>
+                                    <li>All SDKs released</li>
+                                    <li>Developer portal improvements</li>
+                                    <li>Enhanced analytics</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">December 2025</div>
+                                <h3>General Availability</h3>
+                                <p>Full production release with SLA guarantees.</p>
+                                <ul>
+                                    <li>Enterprise features</li>
+                                    <li>Advanced integration options</li>
+                                    <li>Partner program launch</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p>Want to influence our roadmap? Join our <a href="#">Developer Community</a> to provide feedback and suggestions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="api-section" style="background-color: var(--background-grey); padding: 60px 0;">
+            <div class="container">
+                <h2>Developer Community & Support</h2>
+                <p>Join our growing community of sustainability-focused developers and get the help you need:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0;">
+                    <div class="api-card">
+                        <h3><i class="fas fa-comments" style="color: var(--primary-color); margin-right: 10px;"></i> Developer Forum</h3>
+                        <p>Connect with other developers, share your implementations, and get answers to your questions.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Join Forum</a>
+                    </div>
+                    
+                    <div class="api-card">
+                        <h3><i class="fas fa-book" style="color: var(--primary-color); margin-right: 10px;"></i> Documentation</h3>
+                        <p>Comprehensive guides, reference materials, and code examples to help you implement our API.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">View Docs</a>
+                    </div>
+                    
+                    <div class="api-card">
+                        <h3><i class="fas fa-headset" style="color: var(--primary-color); margin-right: 10px;"></i> Technical Support</h3>
+                        <p>Get expert help with your integration from our dedicated support team.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 20px;">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="api-section">
+            <div class="container">
+                <h2>Success Stories</h2>
+                <p>See how innovative companies are using TreasureBot's API to drive sustainability:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0;">
+                    <div class="api-card">
+                        <h3>EcoTrack App</h3>
+                        <p><em>"TreasureBot's API allowed us to add material scanning to our app in just two weeks, increasing user engagement by 78%."</em></p>
+                        <p>— Maria Schöfer, CTO of EcoTrack</p>
+                    </div>
+                    
+                    <div class="api-card">
+                        <h3>GreenCity Initiative</h3>
+                        <p><em>"We've integrated TreasureBot's Green Points system into our city rewards program, resulting in a 35% increase in proper recycling rates."</em></p>
+                        <p>— Lukas Meyer, Project Manager</p>
+                    </div>
+                    
+                    <div class="api-card">
+                        <h3>Circular Economy Institute</h3>
+                        <p><em>"The sustainability metrics available through TreasureBot's API have been invaluable for our research into urban recycling patterns."</em></p>
+                        <p>— Dr. Sarah Lindemann, Research Director</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

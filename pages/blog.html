@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | TreasureBot</title>
+    <meta name="description" content="Stay updated with the latest news, insights, and innovations in recycling technology and sustainability from TreasureBot.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .blog-section {
+            margin: 60px 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .blog-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .blog-tag {
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+        
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .featured-post .blog-image {
+            height: 100%;
+        }
+        
+        .featured-post .blog-content {
+            padding: 40px;
+        }
+        
+        .blog-sidebar {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .blog-sidebar h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .blog-categories, .recent-posts {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .blog-categories li, .recent-posts li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .blog-categories li:last-child, .recent-posts li:last-child {
+            border-bottom: none;
+        }
+        
+        .blog-categories a, .recent-posts a {
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        .blog-categories a:hover, .recent-posts a:hover {
+            color: var(--primary-color);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        
+        .pagination-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        .pagination-item:hover, .pagination-item.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .search-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            border-radius: 6px 0 0 6px;
+            background-color: var(--background-light);
+        }
+        
+        .search-form button {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-form button:hover {
+            background-color: var(--primary-color-dark);
+        }
+        
+        @media (max-width: 992px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post .blog-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Blog</h1>
+                <p class="subheadline">Insights, news, and stories from the world of sustainable recycling</p>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="blog-grid">
+                            <article class="blog-card featured-post">
+                                <img src="https://images.unsplash.com/photo-1611284446314-40f82affa8fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Next Generation Recycling" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>April 17, 2025</span>
+                                        <span class="blog-tag">Breakthrough</span>
+                                    </div>
+                                    <h2 class="blog-title">TreasureBot Unveils Next-Generation Material Recognition Technology</h2>
+                                    <p class="blog-excerpt">Our research team has developed a revolutionary new sensor system that can identify and sort complex multi-material items with 99.8% accuracy. This breakthrough will enable recycling of previously unrecyclable composite materials and significantly reduce landfill waste.</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI in Waste Management" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>April 15, 2025</span>
+                                        <span class="blog-tag">Innovation</span>
+                                    </div>
+                                    <h3 class="blog-title">How AI is Revolutionizing Waste Management in 2025</h3>
+                                    <p class="blog-excerpt">Artificial intelligence is transforming the waste management industry with smart sorting, predictive analytics, and automated processing. Learn how TreasureBot is leading this revolution with our cutting-edge recycling solutions.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1528190336454-13cd56b45b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Green Points Economy" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>April 10, 2025</span>
+                                        <span class="blog-tag">Sustainability</span>
+                                    </div>
+                                    <h3 class="blog-title">The Green Points Economy: How Rewards are Driving Sustainable Behavior</h3>
+                                    <p class="blog-excerpt">Our Green Points system is creating a new economy of sustainability. Discover how users are earning and spending points in ways that benefit both people and planet.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Corporate Partnerships" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>April 5, 2025</span>
+                                        <span class="blog-tag">Business</span>
+                                    </div>
+                                    <h3 class="blog-title">Leading Brands Partner with TreasureBot for Circular Economy Solutions</h3>
+                                    <p class="blog-excerpt">Major brands are integrating our technology into their sustainability strategies. See how these partnerships are creating closed-loop systems for packaging and products.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Green Policy" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>April 2, 2025</span>
+                                        <span class="blog-tag">Policy</span>
+                                    </div>
+                                    <h3 class="blog-title">New Global Recycling Standards and How TreasureBot is Already Compliant</h3>
+                                    <p class="blog-excerpt">With the UN's announcement of standardized global recycling protocols, we explore how TreasureBot's technology is already ahead of the curve and helping municipalities meet these new requirements.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1530904613557-b405de3fb731?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Impact" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>March 28, 2025</span>
+                                        <span class="blog-tag">Community</span>
+                                    </div>
+                                    <h3 class="blog-title">Community Success Stories: How TreasureBot is Transforming Neighborhoods</h3>
+                                    <p class="blog-excerpt">From urban centers to rural communities, TreasureBot is helping people recycle more effectively. Read inspiring stories of local transformation.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1586892477838-2b96e85e0f96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Analytics" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>March 22, 2025</span>
+                                        <span class="blog-tag">Technology</span>
+                                    </div>
+                                    <h3 class="blog-title">Harnessing Big Data for Environmental Impact: TreasureBot's Analytics Platform</h3>
+                                    <p class="blog-excerpt">How we're using data to measure, optimize, and maximize the environmental benefits of smart recycling across communities worldwide.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                            
+                            <article class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Future of Recycling" class="blog-image">
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span>March 15, 2025</span>
+                                        <span class="blog-tag">Future</span>
+                                    </div>
+                                    <h3 class="blog-title">The Future of Recycling: TreasureBot's Vision for 2030</h3>
+                                    <p class="blog-excerpt">Our CEO shares TreasureBot's ambitious roadmap for the next five years, including new technologies, global expansion, and enhanced sustainability goals.</p>
+                                    <a href="#" class="btn btn-outline">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <div class="pagination">
+                            <a href="#" class="pagination-item active">1</a>
+                            <a href="#" class="pagination-item">2</a>
+                            <a href="#" class="pagination-item">3</a>
+                            <a href="#" class="pagination-item">4</a>
+                            <a href="#" class="pagination-item"><i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="blog-sidebar">
+                            <form class="search-form">
+                                <input type="text" placeholder="Search articles..." aria-label="Search">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                            
+                            <div class="blog-sidebar">
+                                <h3>Categories</h3>
+                                <ul class="blog-categories">
+                                    <li><a href="#">Innovation (14)</a></li>
+                                    <li><a href="#">Sustainability (11)</a></li>
+                                    <li><a href="#">Technology (17)</a></li>
+                                    <li><a href="#">Business (9)</a></li>
+                                    <li><a href="#">Community (12)</a></li>
+                                    <li><a href="#">Policy (5)</a></li>
+                                    <li><a href="#">Environment (16)</a></li>
+                                    <li><a href="#">Breakthrough (3)</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="blog-sidebar">
+                                <h3>Recent Posts</h3>
+                                <ul class="recent-posts">
+                                    <li><a href="#">TreasureBot Unveils Next-Generation Material Recognition Technology</a></li>
+                                    <li><a href="#">How AI is Revolutionizing Waste Management in 2025</a></li>
+                                    <li><a href="#">The Green Points Economy: How Rewards are Driving Sustainable Behavior</a></li>
+                                    <li><a href="#">Leading Brands Partner with TreasureBot for Circular Economy Solutions</a></li>
+                                    <li><a href="#">New Global Recycling Standards and How TreasureBot is Already Compliant</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="blog-sidebar">
+                                <h3>Newsletter</h3>
+                                <p>Subscribe to get the latest articles and updates delivered to your inbox.</p>
+                                <form class="newsletter-form">
+                                    <input type="email" placeholder="Your email address" aria-label="Email address">
+                                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Reports | TreasureBot</title>
+    <meta name="description" content="Discover how TreasureBot is making a measurable difference in waste management and sustainability around the world.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .report-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .report-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .report-content {
+            padding: 25px;
+        }
+        
+        .report-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        .metrics-highlight {
+            background-color: var(--background-grey);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .metric-card {
+            background-color: var(--background-light);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .impact-counter {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            width: 90%;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        .counter-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .counter-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .counter-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .counter-label {
+            font-size: 1.2rem;
+            color: #444;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .counter-note {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-counter {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+            
+            .counter-icon {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Impact Reports</h1>
+                <p class="subheadline">Developing a sustainable future through innovative recycling technology</p>
+            </div>
+        </section>
+
+        <section class="funding-highlight" style="background-color: var(--background-light); padding: 60px 0; margin-top: 20px;">
+            <div class="container">
+                <h2>Current Development Status</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">TreasureBot is currently in the prototype development stage, actively seeking funding partners to help us complete testing and move toward mass production.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+                    <div style="flex: 1; min-width: 280px; max-width: 500px; background-color: white; border-radius: 12px; padding: 30px; box-shadow: var(--shadow);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">Prototype Development</h3>
+                        <p><strong>Status:</strong> Active development</p>
+                        <p><strong>Current focus:</strong> Refining AI sorting algorithms and user interface</p>
+                        <p><strong>Recent milestone:</strong> Achieved 92% sorting accuracy in controlled testing</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 280px; max-width: 500px; background-color: white; border-radius: 12px; padding: 30px; box-shadow: var(--shadow);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">Funding Goals</h3>
+                        <p><strong>Seeking:</strong> Investment partners for prototype completion and initial production</p>
+                        <p><strong>Target markets:</strong> Initial rollout in Europe with global expansion plans</p>
+                        <p><strong>Next phase:</strong> Limited production run for extended pilot testing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 70px 0; background-color: var(--primary-color); color: white;">
+            <div class="container">
+                <h2 style="color: white; text-align: center; margin-bottom: 40px;">Investment & Funding Opportunities</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div style="background-color: rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; backdrop-filter: blur(5px);">
+                        <h3 style="color: white; margin-bottom: 15px;">Current Funding Round</h3>
+                        <p><strong>Status:</strong> Active</p>
+                        <p><strong>Seeking:</strong> €2.5M seed funding</p>
+                        <p><strong>Use of funds:</strong> Completion of production-ready prototype, initial manufacturing setup, and patent finalization</p>
+                        <a href="#contact" class="btn" style="background-color: white; color: var(--primary-color); margin-top: 20px; display: inline-block;">Contact for Investor Package</a>
+                    </div>
+                    
+                    <div style="background-color: rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; backdrop-filter: blur(5px);">
+                        <h3 style="color: white; margin-bottom: 15px;">Grant Applications</h3>
+                        <p><strong>Focus areas:</strong> Circular economy, sustainable technology, waste reduction</p>
+                        <p><strong>Status:</strong> Applications submitted to EU Horizon Europe and German Federal Environmental Foundation</p>
+                        <p><strong>Partnerships:</strong> Seeking additional institutional and governmental partnerships</p>
+                    </div>
+                    
+                    <div style="background-color: rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; backdrop-filter: blur(5px);">
+                        <h3 style="color: white; margin-bottom: 15px;">Strategic Partners</h3>
+                        <p><strong>Current focus:</strong> Identifying manufacturing and distribution partners</p>
+                        <p><strong>Opportunities:</strong> Technology licensing, co-development, and joint ventures</p>
+                        <p><strong>Target timeline:</strong> Finalizing key partnerships by Q4 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics-highlight">
+            <div class="container">
+                <h2>Our Projected Impact Goals</h2>
+                <p class="section-intro" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">As we continue developing and refining our prototype, we're setting ambitious goals for TreasureBot's future impact on global waste management.</p>
+                
+                <div class="impact-counter">
+                    <div class="counter-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="counter-content">
+                        <span class="counter-value" id="waste-counter">57,500</span>
+                        <span class="counter-label">tons of waste diverted from landfills</span>
+                        <div class="counter-note">projected impact by 2030</div>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">50K+</div>
+                        <p>Tons of waste we aim to divert annually by 2027</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">95%</div>
+                        <p>Target sorting accuracy for production units</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100K</div>
+                        <p>Projected users in first year of full deployment</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">50+</div>
+                        <p>Initial target cities for implementation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Development & Research Reports</h2>
+                <p>Follow our progress as we develop and refine the TreasureBot prototype and prepare for future deployment.</p>
+                
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1619364726002-dfd4fdaee5f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Prototype Development</span>
+                                <span>April 10, 2025</span>
+                            </div>
+                            <h3>Q1 2025 Prototype Progress Report</h3>
+                            <p>Our latest update on prototype development, featuring improved AI sorting algorithms reaching 92% accuracy in controlled tests and early user experience insights from our beta testing program.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-download"></i>Download PDF</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Research Study</span>
+                                <span>March 15, 2025</span>
+                            </div>
+                            <h3>2025 Waste Management Market Analysis</h3>
+                            <p>Our comprehensive research on the current state of waste management and the potential impact of AI-driven recycling solutions in urban environments.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-download"></i>Download PDF</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1550828520-4cb496926fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Technical Report</span>
+                                <span>February 28, 2025</span>
+                            </div>
+                            <h3>Green Points App Development Plan</h3>
+                            <p>This report outlines our strategy for the Green Points app, a key component of the TreasureBot ecosystem designed to incentivize sustainable waste management practices.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-download"></i>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Pilot Programs & Partnerships</h2>
+                <p>Explore our planned pilot programs and partnerships for initial TreasureBot prototype testing and implementation.</p>
+                
+                <div class="report-grid">
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Pilot Program</span>
+                                <span>Coming Q3 2025</span>
+                            </div>
+                            <h3>EcoTech Campus: Corporate Testing Ground</h3>
+                            <p>Our planned deployment of TreasureBot prototypes at a tech company campus to test real-world performance and gather employee feedback on the Green Points system.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-file-alt"></i>View Proposal</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1467031558611-46285aec0615?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Partnership</span>
+                                <span>Berlin, Germany</span>
+                            </div>
+                            <h3>Berlin's Urban Sustainability Initiative</h3>
+                            <p>Our memorandum of understanding with the city of Berlin to develop a pilot program implementing TreasureBot at key public locations.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-file-alt"></i>View Partnership</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-image" style="background-image: url('https://images.unsplash.com/photo-1509349707313-56e77a99aaf0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')"></div>
+                        <div class="report-content">
+                            <div class="report-meta">
+                                <span>Research Collaboration</span>
+                                <span>University Partnership</span>
+                            </div>
+                            <h3>TU Berlin Research Partnership</h3>
+                            <p>Our ongoing collaboration with TU Berlin's Environmental Engineering department to refine TreasureBot's AI algorithms and test prototype performance.</p>
+                            <a href="#" class="btn btn-primary download-btn"><i class="fas fa-file-alt"></i>View Collaboration</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

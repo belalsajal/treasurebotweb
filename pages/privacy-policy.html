@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | TreasureBot</title>
+    <meta name="description" content="TreasureBot's Privacy Policy explains how we collect, use, and protect your personal data when you use our products and services.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .privacy-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .privacy-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .privacy-intro p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .policy-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .policy-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(46, 139, 87, 0.1);
+        }
+        
+        .policy-card p, .policy-card ul, .policy-card ol {
+            margin-bottom: 20px;
+        }
+        
+        .policy-card ul, .policy-card ol {
+            padding-left: 25px;
+        }
+        
+        .policy-card li {
+            margin-bottom: 10px;
+        }
+        
+        .policy-card strong {
+            color: #444;
+        }
+        
+        .policy-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .policy-card table th, .policy-card table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .policy-card table th {
+            background-color: var(--background-grey);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .policy-card table tr:hover {
+            background-color: rgba(46, 139, 87, 0.03);
+        }
+        
+        .update-notice {
+            background-color: rgba(46, 139, 87, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .update-notice p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        
+        .contact-section {
+            background-color: var(--background-grey);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 50px;
+        }
+        
+        .privacy-team-contact {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .privacy-team-contact h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: var(--background-grey);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-method i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #777;
+            margin-top: 40px;
+            font-style: italic;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background-color: var(--background-grey);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc ul li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            display: inline-block;
+            padding: 5px 0;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p class="subheadline">How we protect and handle your data</p>
+            </div>
+        </section>
+
+        <section class="privacy-section">
+            <div class="container">
+                <div class="privacy-intro">
+                    <p>At TreasureBot, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our products, services, and website.</p>
+                </div>
+                
+                <div class="privacy-content">
+                    <div class="update-notice">
+                        <p><strong>Last Updated:</strong> April 1, 2025. We regularly review and update our privacy practices to ensure compliance with current regulations and best practices.</p>
+                    </div>
+                    
+                    <div class="toc policy-card">
+                        <h4>Table of Contents</h4>
+                        <ul>
+                            <li><a href="#information-collection">1. Information We Collect</a></li>
+                            <li><a href="#information-use">2. How We Use Your Information</a></li>
+                            <li><a href="#information-sharing">3. Information Sharing and Disclosure</a></li>
+                            <li><a href="#data-storage">4. Data Storage and Security</a></li>
+                            <li><a href="#user-rights">5. Your Rights and Choices</a></li>
+                            <li><a href="#cookies">6. Cookies and Similar Technologies</a></li>
+                            <li><a href="#children">7. Children's Privacy</a></li>
+                            <li><a href="#international">8. International Data Transfers</a></li>
+                            <li><a href="#changes">9. Changes to This Policy</a></li>
+                            <li><a href="#contact">10. Contact Our Privacy Team</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div id="information-collection" class="policy-card">
+                        <h3>1. Information We Collect</h3>
+                        <p>We collect information to provide better services to our users and improve our recycling technology. This information includes:</p>
+                        
+                        <h4>1.1 Information You Provide to Us</h4>
+                        <ul>
+                            <li><strong>Account Information:</strong> When you create a TreasureBot account, we collect your name, email address, phone number, and password.</li>
+                            <li><strong>Profile Information:</strong> Information you add to your profile such as a profile picture, address, and preferences.</li>
+                            <li><strong>Payment Information:</strong> If you make purchases or redeem rewards, we collect payment details, billing address, and transaction history.</li>
+                            <li><strong>Communication:</strong> When you contact us for support or participate in surveys, we collect the information you provide in those communications.</li>
+                        </ul>
+                        
+                        <h4>1.2 Information We Collect Automatically</h4>
+                        <ul>
+                            <li><strong>Usage Data:</strong> Information about how you use our services, including recycling patterns, app usage statistics, and features you interact with.</li>
+                            <li><strong>Device Information:</strong> Information about your device including hardware model, operating system, unique device identifiers, and mobile network information.</li>
+                            <li><strong>Location Information:</strong> With your permission, we collect precise location data to help you find nearby TreasureBot units and provide location-based services.</li>
+                            <li><strong>Recycling Activity:</strong> Data about the materials you recycle, frequency of use, and Green Points earned.</li>
+                        </ul>
+                        
+                        <h4>1.3 Information From Third Parties</h4>
+                        <p>We may receive information about you from third parties, including:</p>
+                        <ul>
+                            <li>Partner organizations when you use your TreasureBot account to access their services</li>
+                            <li>Social media platforms when you connect your social accounts to our service</li>
+                            <li>Third-party reward providers when you redeem Green Points</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="information-use" class="policy-card">
+                        <h3>2. How We Use Your Information</h3>
+                        <p>We use the information we collect for the following purposes:</p>
+                        
+                        <h4>2.1 Providing and Improving Our Services</h4>
+                        <ul>
+                            <li>Facilitating your recycling activities and tracking Green Points</li>
+                            <li>Processing transactions and reward redemptions</li>
+                            <li>Personalizing your experience based on your preferences and usage patterns</li>
+                            <li>Developing new features and improving our AI sorting technology</li>
+                            <li>Analyzing trends and user behavior to enhance our services</li>
+                        </ul>
+                        
+                        <h4>2.2 Communication</h4>
+                        <ul>
+                            <li>Sending transactional notifications about your account and activity</li>
+                            <li>Providing customer support and responding to your inquiries</li>
+                            <li>Sending promotional communications about new features, offers, and events (with your consent)</li>
+                            <li>Conducting surveys and collecting feedback</li>
+                        </ul>
+                        
+                        <h4>2.3 Safety and Security</h4>
+                        <ul>
+                            <li>Protecting against fraudulent or unauthorized activity</li>
+                            <li>Verifying your identity and ensuring account security</li>
+                            <li>Maintaining the integrity of our services</li>
+                            <li>Investigating and addressing violations of our terms or policies</li>
+                        </ul>
+                        
+                        <h4>2.4 Legal Compliance</h4>
+                        <p>We process your information when we believe it's necessary to comply with applicable laws, regulations, legal processes, or governmental requests.</p>
+                    </div>
+                    
+                    <div id="information-sharing" class="policy-card">
+                        <h3>3. Information Sharing and Disclosure</h3>
+                        <p>We do not sell your personal information. We may share your information in the following situations:</p>
+                        
+                        <h4>3.1 With Your Consent</h4>
+                        <p>We share your information when you explicitly consent to the sharing.</p>
+                        
+                        <h4>3.2 Service Providers</h4>
+                        <p>We work with third-party service providers who help us operate, improve, and maintain our services. These providers have access to your information only to perform tasks on our behalf and are contractually obligated to protect your data.</p>
+                        
+                        <h4>3.3 Business Partners</h4>
+                        <p>We may share limited information with our business partners, such as:</p>
+                        <ul>
+                            <li>Reward partners when you redeem Green Points</li>
+                            <li>Organizations that host TreasureBot units to provide usage analytics</li>
+                            <li>Payment processors to facilitate transactions</li>
+                        </ul>
+                        
+                        <h4>3.4 Legal Requirements</h4>
+                        <p>We may disclose your information if we reasonably believe disclosure is necessary to:</p>
+                        <ul>
+                            <li>Comply with applicable laws, regulations, legal processes, or governmental requests</li>
+                            <li>Enforce our terms and policies, including investigation of potential violations</li>
+                            <li>Detect, prevent, or address fraud, security, or technical issues</li>
+                            <li>Protect against harm to the rights, property, or safety of TreasureBot, our users, or the public</li>
+                        </ul>
+                        
+                        <h4>3.5 Business Transfers</h4>
+                        <p>If TreasureBot is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you via email and/or a prominent notice on our website of any change in ownership or uses of your personal information.</p>
+                        
+                        <h4>3.6 Aggregated or De-identified Data</h4>
+                        <p>We may share aggregated or de-identified information that cannot reasonably be used to identify you, such as general recycling statistics or environmental impact data.</p>
+                    </div>
+                    
+                    <div id="data-storage" class="policy-card">
+                        <h3>4. Data Storage and Security</h3>
+                        
+                        <h4>4.1 Data Retention</h4>
+                        <p>We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When determining how long to keep your data, we consider:</p>
+                        <ul>
+                            <li>The nature of the information and the purposes for which it was collected</li>
+                            <li>Our legal and regulatory obligations</li>
+                            <li>The length of your relationship with us</li>
+                            <li>Potential disputes or legal claims</li>
+                        </ul>
+                        <p>You can request deletion of your account and personal information at any time, subject to certain exceptions.</p>
+                        
+                        <h4>4.2 Data Security</h4>
+                        <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, loss, or alteration. These measures include:</p>
+                        <ul>
+                            <li>Encryption of data in transit and at rest</li>
+                            <li>Regular security assessments and penetration testing</li>
+                            <li>Access controls and authentication mechanisms</li>
+                            <li>Employee training on data protection and security</li>
+                            <li>Physical security measures for our facilities</li>
+                        </ul>
+                        <p>While we strive to protect your personal information, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+                        
+                        <h4>4.3 Data Storage Location</h4>
+                        <p>TreasureBot is based in the European Union, and your information is primarily stored and processed in the EU. For more information about international data transfers, please see Section 8.</p>
+                    </div>
+                    
+                    <div id="user-rights" class="policy-card">
+                        <h3>5. Your Rights and Choices</h3>
+                        <p>Depending on your location, you may have various rights regarding your personal information:</p>
+                        
+                        <h4>5.1 Access and Portability</h4>
+                        <p>You have the right to access the personal information we hold about you and, in some cases, receive it in a structured, commonly used, and machine-readable format.</p>
+                        
+                        <h4>5.2 Correction</h4>
+                        <p>You can update or correct your personal information through your account settings or by contacting us.</p>
+                        
+                        <h4>5.3 Deletion</h4>
+                        <p>You can request deletion of your personal information. We will delete your information unless we need to retain it for legitimate business or legal purposes.</p>
+                        
+                        <h4>5.4 Objection and Restriction</h4>
+                        <p>You can object to our processing of your personal information or ask us to restrict processing in certain circumstances.</p>
+                        
+                        <h4>5.5 Consent Withdrawal</h4>
+                        <p>Where we process data based on your consent, you can withdraw that consent at any time.</p>
+                        
+                        <h4>5.6 Communication Preferences</h4>
+                        <p>You can opt out of marketing communications by clicking the "unsubscribe" link in our emails or adjusting your notification settings in the app.</p>
+                        
+                        <h4>5.7 Exercising Your Rights</h4>
+                        <p>To exercise these rights, please contact us at privacy@treasurebot.eco or use the dedicated tools in our app. We will respond to your request within 30 days.</p>
+                        
+                        <h4>5.8 Complaints</h4>
+                        <p>If you are not satisfied with our response, you have the right to lodge a complaint with your local data protection authority.</p>
+                    </div>
+                    
+                    <div id="cookies" class="policy-card">
+                        <h3>6. Cookies and Similar Technologies</h3>
+                        
+                        <h4>6.1 What We Use</h4>
+                        <p>We use cookies and similar technologies (like web beacons, pixels, and local storage) to provide, improve, and secure our services. These technologies help us:</p>
+                        <ul>
+                            <li>Remember your preferences and settings</li>
+                            <li>Understand how you use our website and app</li>
+                            <li>Enhance site functionality and user experience</li>
+                            <li>Measure the effectiveness of our communications</li>
+                            <li>Protect against fraud and improve security</li>
+                        </ul>
+                        
+                        <h4>6.2 Types of Cookies</h4>
+                        <table>
+                            <tr>
+                                <th>Category</th>
+                                <th>Purpose</th>
+                            </tr>
+                            <tr>
+                                <td>Essential</td>
+                                <td>Necessary for the website to function properly (cannot be disabled)</td>
+                            </tr>
+                            <tr>
+                                <td>Functional</td>
+                                <td>Enable enhanced functionality and personalization</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics</td>
+                                <td>Help us understand how visitors interact with our website</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing</td>
+                                <td>Used to deliver relevant advertisements and track campaign performance</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>6.3 Your Cookie Choices</h4>
+                        <p>You can manage your cookie preferences through our cookie consent tool or by adjusting your browser settings. Most browsers allow you to block or delete cookies, but doing so may impact your ability to use certain features of our services.</p>
+                    </div>
+                    
+                    <div id="children" class="policy-card">
+                        <h3>7. Children's Privacy</h3>
+                        <p>Our services are not directed to children under 16. We do not knowingly collect personal information from children under 16. If we learn that we have collected personal information from a child under 16, we will promptly delete that information.</p>
+                        <p>If you are a parent or guardian and believe we may have collected information about your child, please contact us immediately at privacy@treasurebot.eco.</p>
+                    </div>
+                    
+                    <div id="international" class="policy-card">
+                        <h3>8. International Data Transfers</h3>
+                        <p>TreasureBot operates globally, which means your information may be transferred to, stored, and processed in countries other than the one in which you reside.</p>
+                        
+                        <h4>8.1 EU-Based Processing</h4>
+                        <p>We primarily store and process data in the European Union, where our headquarters are located. This ensures compliance with the General Data Protection Regulation (GDPR).</p>
+                        
+                        <h4>8.2 Data Transfer Safeguards</h4>
+                        <p>When we transfer data across borders, we implement appropriate safeguards, including:</p>
+                        <ul>
+                            <li>EU Standard Contractual Clauses</li>
+                            <li>Data Protection Impact Assessments</li>
+                            <li>Vendor security assessments</li>
+                            <li>Binding Corporate Rules (where applicable)</li>
+                        </ul>
+                        
+                        <h4>8.3 International Compliance</h4>
+                        <p>We comply with applicable data protection laws in all jurisdictions where we operate, including the GDPR (EU), UK GDPR, CCPA/CPRA (California), and others.</p>
+                    </div>
+                    
+                    <div id="changes" class="policy-card">
+                        <h3>9. Changes to This Policy</h3>
+                        <p>We may update this Privacy Policy periodically to reflect changes in our practices or for other operational, legal, or regulatory reasons. If we make material changes, we will notify you through an in-app message, email, or by posting a notice on our website prior to the change becoming effective.</p>
+                        <p>We encourage you to review this Privacy Policy regularly to stay informed about our information practices and your privacy rights.</p>
+                    </div>
+                    
+                    <div id="contact" class="contact-section">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>10. Contact Our Privacy Team</h2>
+                            </div>
+                            
+                            <div class="privacy-team-contact">
+                                <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact our Data Protection Officer:</p>
+                                
+                                <div class="contact-methods">
+                                    <div class="contact-method">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>privacy@treasurebot.eco</span>
+                                    </div>
+                                    
+                                    <div class="contact-method">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>TreasureBot GmbH, Alexanderplatz 1, 10178 Berlin, Germany</span>
+                                    </div>
+                                    
+                                    <div class="contact-method">
+                                        <i class="fas fa-phone"></i>
+                                        <span>+49 30 1234 5699</span>
+                                    </div>
+                                </div>
+                                
+                                <p style="margin-top: 20px;">We will respond to your inquiry within 30 days.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="last-updated">This Privacy Policy was last updated on April 1, 2025.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div id="back-to-top" class="back-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Back to top button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll for table of contents links
+            const tocLinks = document.querySelectorAll('.toc a');
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        
+                        window.scrollTo({
+                            top: offsetTop - headerHeight - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

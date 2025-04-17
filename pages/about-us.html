@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TreasureBot</title>
+    <meta name="description" content="Learn about TreasureBot's mission, team, and journey to revolutionize recycling through AI-powered technology and sustainable incentives.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .mission-card, .vision-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .mission-card::before {
+            background-color: var(--primary-color);
+        }
+        
+        .vision-card::before {
+            background-color: var(--accent-color);
+        }
+        
+        .mission-card h3, .vision-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .mission-card h3 {
+            color: var(--primary-color);
+        }
+        
+        .vision-card h3 {
+            color: var(--accent-color);
+        }
+        
+        .mission-card p, .vision-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .values-section {
+            background-color: var(--background-grey);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 35px 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(46, 139, 87, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .value-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--text-color);
+        }
+        
+        .story-section {
+            padding: 80px 0;
+        }
+        
+        .timeline {
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: auto;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            right: -13px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -13px;
+        }
+        
+        .timeline-content {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--text-color);
+        }
+        
+        .team-section {
+            background-color: var(--background-grey);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-photo {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-photo img {
+            transform: scale(1.05);
+        }
+        
+        .member-details {
+            padding: 25px;
+        }
+        
+        .member-name {
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+            color: var(--text-color);
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--background-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        .partners-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .partner-logo {
+            height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--light-text);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .primary-cta {
+            background-color: var(--light-text);
+            color: var(--primary-color);
+        }
+        
+        .primary-cta:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        
+        .secondary-cta {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+        }
+        
+        .secondary-cta:hover {
+            background-color: var(--light-text);
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+            
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 17px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About TreasureBot</h1>
+                <p class="subheadline">Our story, mission, and the team behind the green revolution</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <h2>Who We Are</h2>
+                <p>TreasureBot is a sustainability technology company founded in Berlin, Germany with a clear purpose: to revolutionize recycling through AI-powered technology and meaningful incentives. We've created a system that makes proper waste sorting effortless, rewards sustainable actions, and provides valuable data to improve recycling infrastructure.</p>
+                
+                <div class="mission-vision">
+                    <div class="mission-card">
+                        <h3>Our Mission</h3>
+                        <p>To accelerate the world's transition to a circular economy by making sustainable choices simple, rewarding, and accessible to everyone. We aim to divert 10 million tons of waste from landfills by 2030 while creating measurable environmental impact through technology and behavioral science.</p>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <h3>Our Vision</h3>
+                        <p>A world where waste is treated as a valuable resource, where recycling is effortless and rewarding, and where data-driven solutions optimize resource management at every level. We envision TreasureBot systems in every urban center, educational institution, and commercial facility worldwide, creating a global network of smart recycling.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <h2>Our Core Values</h2>
+                <p class="subheadline">The principles that guide everything we do</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Environmental Impact</h3>
+                        <p>We measure our success by our positive impact on the planet. Every decision we make prioritizes sustainability and environmental preservation.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We constantly push the boundaries of what's possible with recycling technology, machine learning, and behavioral science to create breakthrough solutions.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Inclusivity</h3>
+                        <p>We design for everyone. Our solutions are accessible across languages, cultures, ages, and abilities, ensuring nobody is left behind in the green revolution.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Measurable Results</h3>
+                        <p>We believe in data-driven impact. Every TreasureBot system collects valuable information that helps optimize recycling practices and quantify environmental benefits.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>We work closely with governments, businesses, educational institutions, and communities to create integrated solutions that work for all stakeholders.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h3>Global Mindset</h3>
+                        <p>While respecting local recycling needs and regulations, we take a global approach to sustainability challenges that transcend borders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <h2>Our Journey</h2>
+                <p class="subheadline">The story of how TreasureBot evolved from academic research to a transformative sustainability solution</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2022</span>
+                            <h3>The Concept Takes Shape</h3>
+                            <p>The concept of TreasureBot was born from a deep exploration of sustainable development and clean technologies during a master's thesis. This research involved studying global waste infrastructures, circular economy practices, and regulatory frameworks, combining empirical data analysis with firsthand insights from around the world. The findings highlighted the immense potential for technology to dramatically improve recycling efficiency.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2023</span>
+                            <h3>From Vision to Development</h3>
+                            <p>Recognizing the opportunity to address critical waste management challenges, we began developing skills in data science and artificial intelligence, envisioning an autonomous, AI-driven waste bin that could address inefficiencies, reduce contamination, and foster a circular economy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2024</span>
+                            <h3>Collaboration & Refinement</h3>
+                            <p>Our involvement with Le Wagon further refined this idea, providing access to advanced AI tools and experts in computer vision, deep learning, and environmental science. This collaboration helped transform academic insights into practical technological solutions aligned with real-world needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2025</span>
+                            <h3>Transformative Solution Launch</h3>
+                            <p>TreasureBot now represents a powerful fusion of academic insights and real-world innovation, designed to boost recycling rates and align with the EU's ambitious environmental targets. By merging sustainability principles with cutting-edge technology, TreasureBot embodies a transformative solution to pressing waste management challenges, paving the way for a more sustainable future.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h2>Meet Our Leadership Team</h2>
+                <p class="subheadline">The passionate experts driving our mission forward</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="../images/belal-CEO.jpg" alt="Belal">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name">Belal</h3>
+                            <p class="member-role">CEO & Founder</p>
+                            <p class="member-bio">Brings over a decade of experience in Germany, with expertise in Data Science, AI, business development, marketing, and sustainable development projects. At TreasureBot, Belal leads strategy, business development, and fundraising efforts, building partnerships with municipalities, waste management firms, and investors.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="../images/mario-CTO.jpg" alt="Mario Sesseni">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name">Mario Sesseni</h3>
+                            <p class="member-role">CTO</p>
+                            <p class="member-bio">Former CERN researcher with expertise in particle physics, AI engineering, and robotics. Mario oversees TreasureBot's technical roadmap, focusing on AI model accuracy and robotic automation, and collaborates with hardware suppliers to optimize performance.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="../images/josy-.jpg" alt="Josephine Paulenz">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name">Josephine Paulenz</h3>
+                            <p class="member-role">Design & Development Lead</p>
+                            <p class="member-bio">UX/UI designer and web developer with experience in social media marketing and agile methodologies. Josephine leads the user experience design for TreasureBot's hardware and the Green Points app, ensuring a seamless journey from waste deposit to reward tracking.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="../images/advisor.png" alt="Shintaro Miyazaki">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name">Shintaro Miyazaki</h3>
+                            <p class="member-role">Advisor</p>
+                            <p class="member-bio">Junior Professor for Digital Media and Computation at Humboldt University in Berlin. His expertise in digital media, algorithmic processes, and media critique provides valuable insights into the technological aspects of TreasureBot's development.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">Chief Sustainability Officer</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">VP of Business Development</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">Head of Marketing</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">Operations Director</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">Data Science Lead</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://placehold.co/400x400/EEEEEE/999999?text=Team+Member" alt="Team Member">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name"></h3>
+                            <p class="member-role">Partnerships Manager</p>
+                            <p class="member-bio"></p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="advisors-section" style="padding: 80px 0; background-color: var(--background-light);">
+            <div class="container">
+                <h2>Support from Advisors and Mentors</h2>
+                <p class="subheadline">The expert guidance that helps us navigate challenges and opportunities</p>
+                
+                <div style="margin-top: 40px; background-color: var(--background-grey); border-radius: 12px; padding: 40px; box-shadow: var(--shadow);">
+                    <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px;">
+                        TreasureBot benefits from mentorship and guidance from experts in various fields. Our advisors in AI, robotics, and environmental science in Berlin provide guidance on cutting-edge research and pilot validation. These collaborations create a robust ecosystem of technical, operational, and market expertise, ensuring TreasureBot can evolve quickly and effectively to meet the challenges of sustainable waste management.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <h2>Our Partners & Supporters</h2>
+                <p class="subheadline">Working together to drive meaningful environmental change</p>
+                
+                <div class="partners-grid">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=Tech+Partner" alt="Tech Partner" class="partner-logo">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=City+Government" alt="City Government" class="partner-logo">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=University+Partner" alt="University Partner" class="partner-logo">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=Corporate+Partner" alt="Corporate Partner" class="partner-logo">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=Sustainability+NGO" alt="Sustainability NGO" class="partner-logo">
+                    <img src="https://placehold.co/200x80/EEEEEE/999999?text=Green+Investor" alt="Green Investor" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Join the TreasureBot Movement</h2>
+                <p>Whether you're an individual looking to make a difference, a business aiming to improve sustainability, or a city ready to transform waste management, we'd love to work with you.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="cta-btn primary-cta">Contact Us</a>
+                    <a href="careers.html" class="cta-btn secondary-cta">Join Our Team</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

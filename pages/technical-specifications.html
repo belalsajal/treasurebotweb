@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Specifications | TreasureBot</title>
+    <meta name="description" content="Detailed technical specifications for TreasureBot smart recycling systems, including hardware components, AI capabilities, and installation requirements.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background-color: var(--background-grey);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .spec-section {
+            margin: 60px 0;
+            padding: 40px;
+            background-color: var(--background-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .spec-section h2 {
+            text-align: left;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .spec-section h2::after {
+            left: 0;
+            transform: none;
+        }
+        
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .spec-table th {
+            background-color: var(--background-grey);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .spec-table tr:hover {
+            background-color: rgba(46, 139, 87, 0.03);
+        }
+        
+        .tech-highlight {
+            background-color: var(--background-grey);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .model-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .model-card {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .model-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .model-card h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .model-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .model-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .model-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .model-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="TreasureBot Logo">
+                        <span>TreasureBot</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#how-it-works">How It Works</a></li>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#app">Green Points</a></li>
+                    <li><a href="../index.html#business">For Organizations</a></li>
+                    <li><a href="../index.html#contact" class="btn btn-outline">Contact</a></li>
+                    <li><a href="../index.html#demo" class="btn btn-primary">See It In Action</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Technical Specifications</h1>
+                <p class="subheadline">Detailed information about TreasureBot's hardware, software, and installation requirements</p>
+            </div>
+        </section>
+
+        <section class="tech-highlight">
+            <div class="container">
+                <h2>TreasureBot Evolution</h2>
+                <p>Our AI-powered smart bin is evolving through iterative development, with each version bringing enhanced capabilities and features.</p>
+                
+                <div class="model-comparison">
+                    <div class="model-card">
+                        <h3>TreasureBot V1.0</h3>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="../images/Treasurebot.png" alt="TreasureBot V1.0" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                        <ul>
+                            <li>4-category waste sorting (Bio, Plastic, Paper, Other)</li>
+                            <li>Mobile platform with wheels</li>
+                            <li>Integrated sorting bins</li>
+                            <li>Interactive display panel</li>
+                            <li>Basic AI classification (90% accuracy)</li>
+                            <li>Current development prototype</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="popular-tag">UPCOMING</div>
+                        <h3>TreasureBot V1.1</h3>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="../images/Treasurebot.png" alt="TreasureBot V1.1" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                        <ul>
+                            <li>6-category waste sorting</li>
+                            <li>94% AI recognition accuracy</li>
+                            <li>Advanced robotic sorting arms</li>
+                            <li>Green Points app integration</li>
+                            <li>Enhanced user interaction panel</li>
+                            <li>Planned for pilot deployment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="model-card">
+                        <h3>TreasureBot Enterprise</h3>
+                        <ul>
+                            <li>8+ waste categories</li>
+                            <li>97%+ AI accuracy</li>
+                            <li>Autonomous navigation</li>
+                            <li>Solar power with biogas compatibility</li>
+                            <li>Custom integrations with waste systems</li>
+                            <li>White-labeled rewards program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="spec-section">
+                    <h2>Hardware Specifications</h2>
+                    <p>TreasureBot integrates advanced robotics, sensors, and sustainable materials to create an efficient and environmentally-friendly waste management system.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Robotic Sorting Mechanism</td>
+                            <td>Modular robotic arms with soft grippers for glass and suction cups for flat items</td>
+                        </tr>
+                        <tr>
+                            <td>Sorting Speed</td>
+                            <td>Up to 100 items per minute in high-traffic areas</td>
+                        </tr>
+                        <tr>
+                            <td>Autonomous Navigation</td>
+                            <td>LiDAR and SLAM mapping for self-driving capabilities to disposal centers</td>
+                        </tr>
+                        <tr>
+                            <td>Power System</td>
+                            <td>Solar-powered with 12-hour battery life; future biogas compatibility</td>
+                        </tr>
+                        <tr>
+                            <td>Waste Categories</td>
+                            <td>4-6 categories in current models; 8+ in Enterprise version</td>
+                        </tr>
+                        <tr>
+                            <td>Hygiene System</td>
+                            <td>Self-cleaning with biodegradable sanitizers to prevent odor and contamination</td>
+                        </tr>
+                        <tr>
+                            <td>Sensors</td>
+                            <td>IoT sensors for fill levels, temperature, and contamination monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>User Interface</td>
+                            <td>Touch-screen display with real-time feedback and instructions</td>
+                        </tr>
+                        <tr>
+                            <td>Durability</td>
+                            <td>90% reduction in breakage risk for fragile items compared to industrial shredders</td>
+                        </tr>
+                        <tr>
+                            <td>Connectivity</td>
+                            <td>Wi-Fi, Bluetooth, and cellular options for real-time data transmission</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="spec-section">
+                    <h2>AI & Software</h2>
+                    <p>TreasureBot's cutting-edge AI system delivers industry-leading waste recognition accuracy with continuous improvement through federated learning.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>AI Technology</td>
+                            <td>Convolutional neural networks (CNNs) trained on 50,000+ waste images</td>
+                        </tr>
+                        <tr>
+                            <td>Material Recognition</td>
+                            <td>14+ waste categories in current model; expanding to 20+ categories</td>
+                        </tr>
+                        <tr>
+                            <td>Recognition Accuracy</td>
+                            <td>94% current accuracy; 97%+ target for future versions</td>
+                        </tr>
+                        <tr>
+                            <td>Contamination Detection</td>
+                            <td>Spectral analysis to identify food residue, chemical traces, and non-recyclables</td>
+                        </tr>
+                        <tr>
+                            <td>Learning System</td>
+                            <td>Federated learning adapting to regional waste patterns while preserving privacy</td>
+                        </tr>
+                        <tr>
+                            <td>Green Points App</td>
+                            <td>Gamified rewards system with blockchain-secured point tracking</td>
+                        </tr>
+                        <tr>
+                            <td>Data Security</td>
+                            <td>GDPR compliant with decentralized data processing</td>
+                        </tr>
+                        <tr>
+                            <td>Dashboard</td>
+                            <td>Real-time monitoring of fill levels, contamination, and recycling metrics</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="spec-section">
+                    <h2>Installation Requirements</h2>
+                    <p>TreasureBot is designed for easy installation in various environments with minimal requirements.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Space</td>
+                            <td>100 cm × 100 cm floor space, clearance of 30cm on sides</td>
+                        </tr>
+                        <tr>
+                            <td>Power</td>
+                            <td>Standard power outlet within 2m</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Wi-Fi or Ethernet connection (4G/5G optional)</td>
+                        </tr>
+                        <tr>
+                            <td>Environmental</td>
+                            <td>Operating temperature: -10°C to 50°C</td>
+                        </tr>
+                        <tr>
+                            <td>Ventilation</td>
+                            <td>No special requirements</td>
+                        </tr>
+                        <tr>
+                            <td>Floor</td>
+                            <td>Level surface, indoor or sheltered outdoor locations</td>
+                        </tr>
+                        <tr>
+                            <td>Accessibility</td>
+                            <td>ADA compliant design with accessible height controls</td>
+                        </tr>
+                        <tr>
+                            <td>Setup Time</td>
+                            <td>1-2 hours for standard installation</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="spec-section">
+                    <h2>Certifications & Standards</h2>
+                    <p>TreasureBot complies with international safety, environmental, and accessibility standards.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Certification</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Safety</td>
+                            <td>CE, UL, CSA</td>
+                        </tr>
+                        <tr>
+                            <td>Environmental</td>
+                            <td>EU Ecolabel, Energy Star, RoHS</td>
+                        </tr>
+                        <tr>
+                            <td>Data Protection</td>
+                            <td>GDPR compliant, ISO 27001</td>
+                        </tr>
+                        <tr>
+                            <td>Accessibility</td>
+                            <td>ADA, EN 301 549</td>
+                        </tr>
+                        <tr>
+                            <td>Quality Management</td>
+                            <td>ISO 9001:2015</td>
+                        </tr>
+                        <tr>
+                            <td>Environmental Management</td>
+                            <td>ISO 14001:2015</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="spec-section">
+                    <h2>Environmental Impact & Performance Metrics</h2>
+                    <p>TreasureBot delivers measurable benefits for waste management efficiency, sustainability, and circular economy development.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Metric</th>
+                            <th>Performance</th>
+                        </tr>
+                        <tr>
+                            <td>Recycling Improvement</td>
+                            <td>Boosts recycling rates by up to 60% compared to traditional methods</td>
+                        </tr>
+                        <tr>
+                            <td>Cost Reduction</td>
+                            <td>Reduces waste management costs by 25-30% for cities and businesses</td>
+                        </tr>
+                        <tr>
+                            <td>Landfill Diversion</td>
+                            <td>Decreases landfill reliance by 30% in pilot regions</td>
+                        </tr>
+                        <tr>
+                            <td>Emissions Reduction</td>
+                            <td>Equivalent to removing 3 million cars' worth of emissions annually in target regions</td>
+                        </tr>
+                        <tr>
+                            <td>Collection Efficiency</td>
+                            <td>Autonomous navigation reduces collection costs by 30%</td>
+                        </tr>
+                        <tr>
+                            <td>User Engagement</td>
+                            <td>Increases recycling participation by 70% through the Green Points reward system</td>
+                        </tr>
+                        <tr>
+                            <td>Material Recovery</td>
+                            <td>95% of processed waste is repurposed, compared to 35% in traditional systems</td>
+                        </tr>
+                        <tr>
+                            <td>SDG Alignment</td>
+                            <td>Directly contributes to UN Sustainable Development Goals 11, 12, and 13</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="spec-section">
+                    <h2>Development Roadmap</h2>
+                    <p>TreasureBot's evolution is planned in phases to ensure continuous improvement and market adaptation.</p>
+                    <table class="spec-table">
+                        <tr>
+                            <th>Phase</th>
+                            <th>Key Milestones</th>
+                        </tr>
+                        <tr>
+                            <td>Current (2025)</td>
+                            <td>Expanding AI to recognize over 20 waste categories with 94%+ accuracy</td>
+                        </tr>
+                        <tr>
+                            <td>Year 1</td>
+                            <td>Functional prototype with robotic sorting and IoT sensors; MVP of Green Points App</td>
+                        </tr>
+                        <tr>
+                            <td>Year 2</td>
+                            <td>Pilot deployments in Berlin; manufacturing process refinement; AI accuracy to 97%+</td>
+                        </tr>
+                        <tr>
+                            <td>Year 3</td>
+                            <td>Commercial rollout; mass production; expansion to major European cities</td>
+                        </tr>
+                        <tr>
+                            <td>Long-term Vision</td>
+                            <td>Global presence by 2030; waste-to-energy initiative; circular economy integration</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-highlight">
+            <div class="container" style="text-align: center;">
+                <h2>Need More Information?</h2>
+                <p>Our team is ready to help you find the perfect TreasureBot solution for your specific needs.</p>
+                <a href="../index.html#contact" class="btn btn-primary" style="margin-top: 30px;">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <img src="../images/logo.png" alt="TreasureBot Logo" class="footer-logo">
+                    <p>TreasureBot is revolutionizing recycling with AI-powered sorting and meaningful rewards that make sustainability simple.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="impact-reports.html">Impact Reports</a></li>
+                        <li><a href="technical-specifications.html">Technical Specifications</a></li>
+                        <li><a href="developer-api.html">Developer API</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press-kit.html">Press Kit</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="trust-badges">
+                        <img src="../images/gdpr-badge.png" alt="GDPR Compliant" height="90px">
+                        <img src="../images/eu-ecolabel-badge.png" alt="EU Ecolabel" height="90px">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TreasureBot GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
