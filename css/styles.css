@@ -1437,6 +1437,8 @@ footer {
 
     .nav-menu.active {
         left: 0;
+        max-height: 100vh;
+        overflow-y: auto;
     }
 
     .hamburger {
@@ -1496,9 +1498,79 @@ footer {
     .investment-cta {
         flex-direction: column;
     }
+
+    .nav-menu {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .subheadline {
+        font-size: 1rem;
+    }
+
+    .navbar .btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .page-header {
+        padding: 120px 0 40px; /* Adjusted for mobile */
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .feature, .step, .benefit, .value-card {
+        padding: 20px 15px;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+    }
+
+    /* Improving tables on mobile */
+    .spec-table, .parameter-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Better form elements on mobile */
+    input, select, textarea, button {
+        font-size: 16px; /* Prevents zoom on focus in iOS */
+    }
+
+    /* Adjusting card layouts for mobile */
+    .team-card, .blog-card, .report-card, .api-card {
+        width: 100%;
+    }
+
     h1 {
         font-size: 2.2rem;
     }
