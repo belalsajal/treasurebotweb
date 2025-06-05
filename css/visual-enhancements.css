@@ -1,0 +1,515 @@
+/* Visual Enhancements - Phase 1 */
+
+/* Enhanced Button Animations */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(46, 139, 87, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: transform 0.1s;
+}
+
+.btn-outline:hover {
+    box-shadow: 0 10px 30px rgba(46, 139, 87, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Ripple Effect for Primary Buttons */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-primary:active::after {
+    width: 200px;
+    height: 200px;
+    transition: width 0.1s ease, height 0.1s ease;
+}
+
+/* Enhanced Card Hover Effects */
+.feature {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, box-shadow;
+}
+
+.feature:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature::before {
+    transition: height 0.3s ease;
+}
+
+.feature:hover::before {
+    height: 6px;
+}
+
+.feature-icon {
+    transition: all 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+    transform: scale(1.1) rotateY(10deg);
+    color: var(--primary-dark);
+}
+
+/* Step Animation Enhancements */
+.step {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.step:hover {
+    transform: translateY(-8px);
+}
+
+.step::before {
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.step:hover::before {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+}
+
+.step-icon {
+    transition: all 0.3s ease;
+}
+
+.step:hover .step-icon {
+    transform: scale(1.15);
+    color: var(--primary-dark);
+}
+
+/* Enhanced Investment Cards */
+.highlight-item {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 139, 87, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.highlight-item:hover::before {
+    left: 100%;
+}
+
+.highlight-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-icon {
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover .highlight-icon {
+    transform: scale(1.1);
+    background-color: rgba(46, 139, 87, 0.2);
+}
+
+/* Eco-Feature Enhancements */
+.eco-feature {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.eco-feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(46, 139, 87, 0.05), rgba(46, 139, 87, 0.02));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.eco-feature:hover::before {
+    opacity: 1;
+}
+
+.eco-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(46, 139, 87, 0.15);
+}
+
+.eco-icon {
+    transition: all 0.3s ease;
+}
+
+.eco-feature:hover .eco-icon {
+    transform: scale(1.1) rotateZ(5deg);
+}
+
+/* Typography Enhancements */
+h1 {
+    background: linear-gradient(135deg, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Enhanced Section Headings */
+.section-heading h2 {
+    position: relative;
+    overflow: hidden;
+}
+
+.heading-underline {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    margin: 0 auto;
+    border-radius: 2px;
+    animation: underlineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineGlow {
+    0% { box-shadow: 0 0 5px rgba(46, 139, 87, 0.3); }
+    100% { box-shadow: 0 0 15px rgba(46, 139, 87, 0.6); }
+}
+
+/* Hero Section Enhancements */
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.treasurebot-image {
+    transition: all 0.4s ease;
+}
+
+.treasurebot-image:hover {
+    transform: scale(1.05) rotateY(5deg);
+}
+
+.hero-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Scroll Indicator Enhancement */
+.hero-scroll-indicator {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Form Input Enhancements */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group select:focus + label,
+.form-group textarea:focus + label {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Navigation */
+.nav-menu a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* App Screenshots Enhancement */
+.app-image {
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.app-image:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Form Enhancement */
+.contact-form {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.contact-info {
+    animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Social Links Enhancement */
+.social-links a {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px) scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Benefit List Enhancements */
+.benefit-list li,
+.pilot-benefits li {
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.benefit-list li:hover,
+.pilot-benefits li:hover {
+    background-color: rgba(46, 139, 87, 0.05);
+    transform: translateX(5px);
+}
+
+/* Demo Container Enhancement */
+.demo-container {
+    transition: all 0.3s ease;
+}
+
+.upload-icon {
+    transition: all 0.3s ease;
+}
+
+.demo-container:hover .upload-icon {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Business Benefits Enhancement */
+.benefit {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.benefit:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.benefit h3 {
+    transition: all 0.3s ease;
+}
+
+.benefit:hover h3 {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Newsletter Form Enhancement */
+.newsletter-form {
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 139, 87, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.newsletter-form:hover::before {
+    left: 100%;
+}
+
+/* Smooth Scroll Enhancement */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Performance Optimizations */
+* {
+    will-change: auto;
+}
+
+.feature,
+.step,
+.highlight-item,
+.eco-feature,
+.btn {
+    will-change: transform, box-shadow;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus Indicators */
+.btn:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid currentColor;
+    }
+    
+    .feature,
+    .step,
+    .highlight-item {
+        border: 1px solid var(--border-color);
+    }
+}
